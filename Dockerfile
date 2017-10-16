@@ -165,15 +165,6 @@ RUN useradd $NB_USER \
 ## copy files to working directory
 WORKDIR $HOME
 
-## change permission and run devtools to install CausalImpact
-COPY install_CI.R /usr/local/bin/install_CI.R
-RUN chmod 777 /usr/local/bin/install_CI.R
-RUN /usr/local/bin/install_CI.R
-
-## ensure that all apps place in srv/ will be available on network
-COPY shiny-server.sh /usr/local/bin/shiny-server.sh
-COPY shiny-server.conf /etc/shiny-server/shiny-server.conf
-RUN chmod 777 /usr/local/bin/shiny-server.sh
 
 RUN mkdir -p /home/science
 COPY entry.sh /usr/local/bin/entry.sh
