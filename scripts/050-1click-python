@@ -1,0 +1,64 @@
+#!/bin/bash
+
+export DEBIAN_FRONTEND=non-interactive
+
+###################################
+
+## Python data science libraries ##
+
+###################################
+
+## install python3.5
+apt-get update
+apt-get upgrade -y
+apt-get install -y \
+    aria2 \
+    build-essential \
+    ca-certificates \
+    python-pip \
+    python3-pip \
+    python3.5 \
+    python3.5-dev
+
+apt-get autoremove -y 
+apt-get clean
+
+## make some useful symlinks that are expected to exist
+#cd /usr/local/bin \
+  #&& ln -s idle3 idle \
+  #&& ln -s pydoc3 pydoc \
+  #&& ln -s python3 python \
+  #&& ln -s python3-config python-config
+
+
+## install jupyter and datascience libraries
+pip3 install \
+    beautifulsoup4 \
+    bokeh \
+    Flask \
+    gensim \
+    jupyter \
+    jupyterhub \
+    jupyterlab \
+    matplotlib \
+    networkx \
+    nltk \
+    nltk \
+    notebook \
+    numpy \
+    pandas \
+    pyzmq \
+    requests \
+    scikit-image \
+    scikit-learn \
+    scipy \
+    seaborn \
+    sqlalchemy \
+    statsmodels \
+    sympy \
+    textblob
+
+apt-get -qqy clean
+rm -rf /var/lib/apt/lists/*
+
+mkdir -p /var/lib/jupyterhub

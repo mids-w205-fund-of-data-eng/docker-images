@@ -1,0 +1,26 @@
+#!/bin/bash
+
+export DEBIAN_FRONTEND=non-interactive
+
+###################################
+
+## node.js data science deps ##
+
+###################################
+
+apt-get -qqy update
+apt-get install -y --no-install-recommends \
+    nodejs \
+    npm
+
+## make some useful symlinks that are expected to exist
+cd /usr/bin \
+  && ln -s nodejs node
+
+## install deps
+npm install -g \
+  configurable-http-proxy
+
+apt-get autoremove -y
+apt-get -qqy clean
+rm -rf /var/lib/apt/lists/*

@@ -1,0 +1,68 @@
+#!/bin/bash
+
+export DEBIAN_FRONTEND=non-interactive
+
+#TODO install devtools
+## change permission and run devtools to install CausalImpact
+#COPY install_CI.R /usr/local/bin/install_CI.R
+#RUN chmod 777 /usr/local/bin/install_CI.R
+#RUN /usr/local/bin/install_CI.R
+
+#TODO run shiny
+## ensure that all apps place in srv/ will be available on network
+#COPY shiny-server.sh /usr/local/bin/shiny-server.sh
+#COPY shiny-server.conf /etc/shiny-server/shiny-server.conf
+#RUN chmod 777 /usr/local/bin/shiny-server.sh
+
+#TODO figure out what entry runs
+#RUN mkdir -p /home/science
+#COPY entry.sh /usr/local/bin/entry.sh
+#RUN chmod 777 /usr/local/bin/entry.sh
+#ENTRYPOINT /usr/local/bin/entry.sh
+
+#TODO add services for jupyter and shiny
+
+echo '
+[Unit]
+Description=Jupyter Notebook
+
+[Service]
+Type=simple
+User=science
+Group=science
+WorkingDirectory=/home/science
+Restart=always
+RestartSec=10
+ExecStartPre=/bin/bash -c "[ -f /home/science/.digitalocean_token ] || cat /proc/sys/kernel/random/uuid > /home/science/.digitalocean_token"
+ExecStart=/bin/bash -c "/usr/local/bin/jupyter-notebook --NotebookApp.token=$(cat /home/science/.digitalocean_token) --no-browser --port 8888 --ip=0.0.0.0 --allow-root"
+
+[Install]
+WantedBy=multi-user.target
+' > /etc/systemd/system/jupyter.service
+
+#systemctl enable jupyter.service
+
+
+
+systemctl enable jupyterhub.service
+
+
+echo '
+[Unit]
+Description=Shiny Server
+
+[Service]
+Type=simple
+User=science
+Group=science
+WorkingDirectory=/home/science
+Restart=always
+RestartSec=10
+ExecStart=/usr/local/bin/shiny-server >> /var/log/shiny-server.log 2>&1
+
+[Install]
+WantedBy=multi-user.target
+' > /etc/systemd/system/shiny.service
+
+#systemctl enable shiny.service
+

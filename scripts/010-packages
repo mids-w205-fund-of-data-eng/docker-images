@@ -1,0 +1,18 @@
+#!/bin/bash
+
+################################
+## PART: install the packages
+##
+pkgs=(apt-transport-https
+      jq
+      ca-certificates
+      python-letsencrypt
+      linux-image-extra-virtual
+      python-pip
+      python-virtualenv
+      lighttpd
+)
+
+apt-get -qqy update
+apt-get -qqy install ${pkgs[@]}
+

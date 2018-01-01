@@ -1,0 +1,78 @@
+#!/bin/bash
+
+export DEBIAN_FRONTEND=non-interactive
+
+##############################
+
+## R data science libraries ##
+
+##############################
+
+## now install R and littler, and create a link for littler in /usr/local/bin
+apt-get update
+apt-get install -y --no-install-recommends \
+    littler \
+    r-cran-littler \
+    r-base=${R_BASE_VERSION}* \
+    r-base-dev=${R_BASE_VERSION}* \
+    r-recommended=${R_BASE_VERSION}* 
+
+echo 'options(repos = c(CRAN = "https://cran.rstudio.com/"), download.file.method = "libcurl")' >> /etc/R/Rprofile.site
+echo 'source("/etc/R/Rprofile.site")' >> /etc/littler.r
+ln -s /usr/share/doc/littler/examples/install.r /usr/local/bin/install.r
+ln -s /usr/share/doc/littler/examples/install2.r /usr/local/bin/install2.r
+ln -s /usr/share/doc/littler/examples/installGithub.r /usr/local/bin/installGithub.r
+ln -s /usr/share/doc/littler/examples/testInstalled.r /usr/local/bin/testInstalled.r
+install.r docopt
+rm -rf /tmp/downloaded_packages/ /tmp/*.rds
+rm -rf /var/lib/apt/lists/*
+
+apt-get -qqy clean
+rm -rf /var/lib/apt/lists/*
+
+## download and install shiny server
+apt-get update && apt-get install -y software-properties-common
+add-apt-repository "deb http://cran.r-project.org/bin/linux/ubuntu $(lsb_release -cs)/"
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
+apt-get update
+apt-get install -y \
+    fonts-texgyre \
+    r-base \
+    r-base-dev \
+    r-recommended
+
+echo 'options(
+  repos = c(CRAN = "https://cran.r-project.org/"),
+  download.file.method = "libcurl",
+  # Detect number of physical cores
+  Ncpus = parallel::detectCores(logical=FALSE)
+)' >> /etc/R/Rprofile.site
+
+## install R basic and data science libraries
+/usr/local/bin/install2.r --error \
+    IRdisplay \
+    caret \
+    crayon \
+    data.table \
+    devtools \
+    digest \
+    dygraphs \
+    evaluate \
+    forecast \
+    htmlwidgets \
+    optparse \
+    pbdZMQ \
+    plyr \
+    repr \
+    reshape2 \
+    rmarkdown \
+    shiny \
+    shinydashboard \
+    tidyverse \
+    uuid \
+    xts \
+    zoo
+
+rstudio_package="rstudio-server-1.0.153-amd64.deb"
+curl -o /tmp/$rstudio_package -L "https://download2.rstudio.org/$rstudio_package"
+dpkg -i /tmp/$rstudio_package
