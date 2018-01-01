@@ -168,10 +168,8 @@ WORKDIR $HOME
 
 RUN mkdir -p /home/science
 COPY entry.sh /usr/local/bin/entry.sh
-RUN chmod 777 /usr/local/bin/entry.sh
-ENTRYPOINT /usr/local/bin/entry.sh
-
-
+#RUN chmod 777 /usr/local/bin/entry.sh
+#ENTRYPOINT /usr/local/bin/entry.sh
 
 COPY bash.bashrc /etc/
 
