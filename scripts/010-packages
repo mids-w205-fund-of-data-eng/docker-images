@@ -15,4 +15,5 @@ pkgs=(apt-transport-https
 
 apt-get -qqy update
 apt-get -qqy install ${pkgs[@]}
-
+apt-get -qqy clean
+rm -rf /var/lib/apt/lists/*

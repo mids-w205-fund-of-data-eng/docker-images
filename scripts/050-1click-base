@@ -14,11 +14,7 @@ apt-get -qqy update
 apt-get -qqy upgrade
 apt-get install build-essential -y 
 apt-get install -y --no-install-recommends \
-    apt-transport-https \
-    build-essential \
     ca-certificates \
-    ca-certificates \
-    curl \
     curl \
     ed \
     elinks \
@@ -43,15 +39,11 @@ apt-get install -y --no-install-recommends \
     libreadline6-dev \
     libsqlite3-dev \
     libssl-dev \
-    libssl-dev \
     libv8-dev \
     libxcb1-dev \
     libxdmcp-dev \
     libxml2-dev \
-    libxml2-dev \
     libxslt1-dev \
-    libxslt1-dev \
-    libxt-dev \
     libxt-dev \
     links \
     links2 \
@@ -70,5 +62,6 @@ apt-get install -y --no-install-recommends \
     wget \
     zlib1g-dev
 
+apt-get autoremove -y 
 apt-get -qqy clean
 rm -rf /var/lib/apt/lists/*

@@ -13,8 +13,6 @@ apt-get update
 apt-get upgrade -y
 apt-get install -y \
     aria2 \
-    build-essential \
-    ca-certificates \
     python-pip \
     python3-pip \
     python3.5 \
