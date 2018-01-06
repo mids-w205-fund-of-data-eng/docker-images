@@ -1,0 +1,22 @@
+#!/bin/bash
+
+export DEBIAN_FRONTEND=non-interactive
+
+###################################
+
+## gcloud sdk
+
+###################################
+
+pip3 install \
+    pyasn1 \
+    pyasn1-modules \
+    google-auth-oauthlib \
+    google-cloud
+
+#pip3 install --upgrade google-auth-oauthlib
+
+export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" && \
+    echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list && \
+    curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add - && \
+    sudo apt-get -qqy update && sudo apt-get install -qqy google-cloud-sdk

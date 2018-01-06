@@ -60,6 +60,7 @@ RUN bash /tmp/051-1click-python
 
 #RUN bash /tmp/055-1click-R-fixups
 #RUN bash /tmp/070-node
+RUN bash /tmp/071-gcloud-sdk
 #RUN bash /tmp/080-1click-services
 
 
