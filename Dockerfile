@@ -63,6 +63,7 @@ RUN bash /tmp/051-1click-python
 RUN bash /tmp/071-gcloud-sdk
 #RUN bash /tmp/080-1click-services
 
+RUN bash /tmp/099-mids-fixups
 
 ###################################
 
@@ -77,7 +78,7 @@ RUN bash /tmp/071-gcloud-sdk
     #&& chown -R  $NB_USER $HOME
 
 ### copy files to working directory
-#WORKDIR $HOME
+WORKDIR $HOME
 
 #COPY entry.sh /usr/local/bin/entry.sh
 #RUN chmod 777 /usr/local/bin/entry.sh
