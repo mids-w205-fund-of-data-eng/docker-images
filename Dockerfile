@@ -1,6 +1,6 @@
 FROM ubuntu:xenial
 
-MAINTAINER DigitalOcean <support@digitalocean.com>
+MAINTAINER Mark Mims <mark@digitalocean.com>
 
 #############################
 
