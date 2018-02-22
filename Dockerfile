@@ -65,6 +65,8 @@ RUN bash /tmp/071-gcloud-sdk
 
 RUN bash /tmp/099-mids-fixups
 
+RUN apt-get -qq update && apt-get -yqq install kafkacat
+
 ###################################
 
 ### user and configuration files ##
