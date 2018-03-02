@@ -4,3 +4,6 @@ pip3 install \
     redis \
     kafka-python
 
+pip install \
+    kafka-python \
+    flask
