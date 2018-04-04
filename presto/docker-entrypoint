@@ -1,0 +1,18 @@
+#!/bin/bash
+set -eo pipefail
+shopt -s nullglob
+
+if [ ! -z "$HOSTNAME" ]; then
+  sed -i "s/presto/${HOSTNAME}/" ${PRESTO_HOME}/etc/config.properties
+fi
+
+if [ ! -z "$HIVE_THRIFTSERVER" ]; then
+  cp ${PRESTO_HOME}/etc/templates/hive.properties ${PRESTO_HOME}/etc/catalog/
+  sed -i "s/thriftserver/${HIVE_THRIFTSERVER}/" ${PRESTO_HOME}/etc/catalog/hive.properties
+fi
+
+echo
+echo 'Config process done. Ready for startup.'
+echo 
+
+exec "$@"
