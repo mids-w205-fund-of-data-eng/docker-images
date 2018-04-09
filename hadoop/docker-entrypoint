@@ -4,6 +4,7 @@ shopt -s nullglob
 
 if [ ! -z "$HOSTNAME" ]; then
   sed -i "s/quickstart.cloudera/${HOSTNAME}/" /etc/hadoop/conf/core-site.xml
+  sed -i "s/quickstart.cloudera/${HOSTNAME}/" /etc/hue/conf/hue.ini
 fi
 
 echo
