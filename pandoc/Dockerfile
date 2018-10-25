@@ -1,5 +1,5 @@
 FROM ubuntu:16.04
-MAINTAINER Mark Mims <mark@digitalocean.com>
+MAINTAINER Mark Mims <mark.mims@gmail.com>
 
 RUN apt-get -qq update \
   && apt-get -qq upgrade -y \

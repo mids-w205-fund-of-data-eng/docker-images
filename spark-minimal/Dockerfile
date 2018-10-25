@@ -1,5 +1,5 @@
 FROM ubuntu:16.04
-MAINTAINER Mark Mims <mark@digitalocean.com>
+MAINTAINER Mark Mims <mark.mims@gmail.com>
 
 ENV SPARK_VERSION        2.2.0
 ENV SPARK_HADOOP_VERSION 2.6

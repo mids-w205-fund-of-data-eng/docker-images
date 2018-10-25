@@ -1,5 +1,5 @@
 FROM zhicwu/presto:latest
-MAINTAINER Mark Mims <mark@digitalocean.com>
+MAINTAINER Mark Mims <mark.mims@gmail.com>
 
 ENV PRESTO_HOME=/presto
 

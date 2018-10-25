@@ -1,5 +1,5 @@
 FROM cloudera/quickstart:5.7.0-0-beta
-MAINTAINER Mark Mims <mark@digitalocean.com>
+MAINTAINER Mark Mims <mark.mims@gmail.com>
 
 COPY docker-entrypoint /usr/bin/
 COPY docker-quickstart /usr/bin/

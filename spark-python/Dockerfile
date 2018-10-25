@@ -1,5 +1,5 @@
 FROM midsw205/spark-minimal:latest
-MAINTAINER Mark Mims <mark@digitalocean.com>
+MAINTAINER Mark Mims <mark.mims@gmail.com>
 
 ENV ANACONDA_VERSION 4.4.0
 ENV PY4J_VERSION     0.10.4

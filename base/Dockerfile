@@ -1,5 +1,4 @@
 FROM ubuntu:xenial
-
 MAINTAINER Mark Mims <mark.mims@gmail.com>
 
 ENV SHELL /bin/bash
