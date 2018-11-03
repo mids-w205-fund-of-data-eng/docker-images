@@ -225,11 +225,16 @@ $if(maxScale)$
         maxScale: $maxScale$,
 $endif$
 
+        math: {
+          config: 'TeX-AMS_HTML-full'
+        },
+
         // Optional reveal.js plugins
         dependencies: [
           { src: '$revealjs-url$/lib/js/classList.js', condition: function() { return !document.body.classList; } },
           { src: '$revealjs-url$/plugin/zoom-js/zoom.js', async: true },
-          { src: '$revealjs-url$/plugin/notes/notes.js', async: true }
+          { src: '$revealjs-url$/plugin/notes/notes.js', async: true },
+          { src: '$revealjs-url$/plugin/math/math.js', async: true }
         ]
       });
     </script>

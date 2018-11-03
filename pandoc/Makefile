@@ -2,7 +2,7 @@ default: version list
 
 NAMESPACE=midsw205
 IMAGE=$(shell basename $(PWD))
-VERSION=2.0.6
+VERSION=2.0.7
 
 version: show-version
 show-version:
