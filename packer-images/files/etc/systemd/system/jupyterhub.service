@@ -1,0 +1,12 @@
+[Unit]
+Description=JupyterHub
+
+[Service]
+Type=simple
+WorkingDirectory=/var/lib/jupyterhub
+Restart=always
+RestartSec=10
+ExecStart=/bin/bash -c "/usr/local/bin/jupyterhub --no-ssl -f /etc/jupyterhub/jupyterhub_config.py"
+
+[Install]
+WantedBy=multi-user.target

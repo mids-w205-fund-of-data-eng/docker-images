@@ -1,0 +1,15 @@
+#!/bin/sh
+#
+# Configured as part of the w205 Image build process
+
+myip=$(hostname -I | awk '{print$1}')
+cat <<EOF
+------------------------------------------------------------------------
+Welcome to your UC Berkeley MIDS w205 student cloud instance!
+
+The "ufw" firewall is enabled. All ports except for 22, 80,
+8000 (JuypiterHub), and 8787 (R-Studio Server) are blocked.
+
+------------------------------------------------------------------------
+
+EOF

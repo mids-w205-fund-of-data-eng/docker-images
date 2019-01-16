@@ -1,0 +1,18 @@
+################################
+## PART: Node.js DS deps
+##
+## vi: syntax=sh expandtab ts=4
+
+export DEBIAN_FRONTEND=noninteractive
+apt-get -qqy update
+apt-get install -y --no-install-recommends \
+    nodejs \
+    npm
+
+## make some useful symlinks that are expected to exist
+cd /usr/bin \
+  && ln -s nodejs node
+
+## install deps
+npm install -g \
+  configurable-http-proxy@v3.1.1

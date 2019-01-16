@@ -1,0 +1,8 @@
+{
+  "aws_access_key": "<key>",
+  "aws_secret_key": "<key>",
+  "do_api_token": "<token>",
+  "gcp_account_file": "<path to application_default_credentials.json>",
+  "gcp_project_id": "<cool-project-123456>"
+}
+

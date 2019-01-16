@@ -1,0 +1,36 @@
+#!/bin/bash
+
+cat >> /root/.bashrc <<"EOM"
+cat<<EOC
+
+To access Jupyterhub, please open the following URL in a browser:
+    http://$(hostname -I | awk '{print$1}'):8000/
+
+To access RStudio-server, please open the following URL in a browser:
+    http://$(hostname -I | awk '{print$1}'):8787/
+
+To run scripts from the command line, become the science user:
+    su - science
+
+EOC
+EOM
+
+cat >> /home/science/.bashrc <<"EOM"
+cat<<EOC
+
+To access Jupyterhub, please open the following URL in a browser:
+    http://$(hostname -I | awk '{print$1}'):8000/
+
+To access RStudio-server, please open the following URL in a browser:
+    http://$(hostname -I | awk '{print$1}'):8787/
+
+EOC
+EOM
+
+ufw enable
+ufw limit ssh
+ufw allow 80/tcp # lighttpd greeter
+#ufw allow 4000/tcp # shiny
+ufw allow 8000/tcp # jupyterhub
+ufw allow 8787/tcp # r-studio server
+#ufw allow 8888/tcp # jupyter
