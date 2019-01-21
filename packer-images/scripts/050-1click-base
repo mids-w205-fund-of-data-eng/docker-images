@@ -1,0 +1,68 @@
+################################
+## PART: Basic and Numeric Libs
+##
+## vi: syntax=sh expandtab ts=4
+
+export DEBIAN_FRONTEND=noninteractive
+
+## Install compiler and other required basic and numerical libraries
+apt-get -qqy update
+apt-get -qqy upgrade
+apt-get install build-essential -y 
+apt-get install -y --no-install-recommends \
+    apt-transport-https \
+    build-essential \
+    ca-certificates \
+    ca-certificates \
+    curl \
+    curl \
+    ed \
+    elinks \
+    gcc \
+    gdebi-core \
+    gfortran \
+    git \
+    less \
+    libatlas-base-dev \
+    libblas-dev \
+    libcairo2-dev \
+    libcurl4-openssl-dev \
+    libffi-dev \
+    libfreetype6 \
+    libfreetype6-dev \
+    libjpeg8 \
+    libjpeg8-dev \
+    liblapack-dev \
+    libmysqlclient-dev \
+    libpq-dev \
+    libreadline6 \
+    libreadline6-dev \
+    libsqlite3-dev \
+    libssl-dev \
+    libssl-dev \
+    libv8-dev \
+    libxcb1-dev \
+    libxdmcp-dev \
+    libxml2-dev \
+    libxml2-dev \
+    libxslt1-dev \
+    libxslt1-dev \
+    libxt-dev \
+    libxt-dev \
+    links \
+    links2 \
+    locales \
+    lynx \
+    make \
+    nano \
+    openssl \
+    pandoc \
+    pandoc-citeproc \
+    pkg-config \
+    software-properties-common \
+    sudo \
+    vim \
+    w3m \
+    wget \
+    zlib1g-dev
+
