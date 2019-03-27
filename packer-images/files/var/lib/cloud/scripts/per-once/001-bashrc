@@ -1,0 +1,10 @@
+#!/bin/bash
+
+#cat >> /home/science/.bashrc <<"EOM"
+#cat<<EOC
+
+#To access Jupyterhub, please open the following URL in a browser:
+    #http://$(hostname -I | awk '{print$1}')/
+
+#EOC
+#EOM
