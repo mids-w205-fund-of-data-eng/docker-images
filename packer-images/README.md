@@ -276,3 +276,11 @@ discussion on which users get added to initial gcp instances
 | Answer 2. - To add a new user to my VM, I add SSH public key to VM Metadata. If the user specified in the SSH info does not exist, it will be created on my GCP VM.
 
 
+
+# bionic
+
+## gcp
+
+    "source_image": "ubuntu-1604-xenial-v20190112",
+    "source_image": "ubuntu-1804-bionic-v20190320",
+

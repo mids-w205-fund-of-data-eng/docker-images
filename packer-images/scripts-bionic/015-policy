@@ -1,0 +1,7 @@
+################################
+## PART: no startup
+##
+## vi: syntax=sh expandtab ts=4
+
+echo exit 101 > /usr/sbin/policy-rc.d
+chmod +x /usr/sbin/policy-rc.d

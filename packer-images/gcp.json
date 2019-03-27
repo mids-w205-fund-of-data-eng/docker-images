@@ -8,11 +8,11 @@
       "type": "googlecompute",
       "account_file": "{{user `gcp_account_file`}}",
       "project_id": "{{user `gcp_project_id`}}",
-      "source_image": "ubuntu-1604-xenial-v20190112",
+      "source_image": "ubuntu-1804-bionic-v20190320",
       "ssh_username": "ubuntu",
       "zone": "us-central1-a",
       "machine_type": "n1-standard-2",
-      "image_name": "mids-w205-tools-{{timestamp}}",
+      "image_name": "mids-w205-tools-bionic-{{timestamp}}",
       "image_description": "UCB MIDS w205 student tools image"
     }
   ],
@@ -39,7 +39,7 @@
     },
     {
       "type": "file",
-      "source": "scripts/",
+      "source": "scripts-bionic/",
       "destination": "/tmp/mloc-install/scripts/"
     },
     {
