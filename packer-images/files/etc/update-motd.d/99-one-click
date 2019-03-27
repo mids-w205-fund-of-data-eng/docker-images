@@ -7,8 +7,7 @@ cat <<EOF
 ------------------------------------------------------------------------
 Welcome to your UC Berkeley MIDS w205 student cloud instance!
 
-The "ufw" firewall is enabled. All ports except for 22, 80,
-8000 (JuypiterHub), and 8787 (R-Studio Server) are blocked.
+The "ufw" firewall is enabled. All ports except for 22 and 80 are blocked.
 
 ------------------------------------------------------------------------
 

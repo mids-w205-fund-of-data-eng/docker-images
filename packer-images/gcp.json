@@ -4,23 +4,58 @@
       "gcp_project_id": ""
     },
   "builders": [
-    { 
+    {
       "type": "googlecompute",
       "account_file": "{{user `gcp_account_file`}}",
       "project_id": "{{user `gcp_project_id`}}",
       "source_image": "ubuntu-1604-xenial-v20190112",
-      "ssh_username": "packer",
+      "ssh_username": "ubuntu",
       "zone": "us-central1-a",
-      "image_name": "packer-example-{{timestamp}}",
-      "image_description": ""
+      "machine_type": "n1-standard-2",
+      "image_name": "mids-w205-tools-{{timestamp}}",
+      "image_description": "UCB MIDS w205 student tools image"
     }
   ],
-  "provisioners": [{
-    "type": "shell",
-    "inline": [
-      "sleep 30",
-      "sudo apt-get update",
-      "sudo apt-get install -y redis-server"
-    ]
-  }]
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": [
+        "mkdir -p /tmp/mloc-install/scripts",
+        "mkdir -p /tmp/mloc-install/files"
+      ]
+    },
+    {
+      "type": "file",
+      "source": "files/",
+      "destination": "/tmp/mloc-install/files"
+    },
+    {
+      "type": "shell",
+      "execute_command": "chmod +x {{ .Path }}; sudo {{ .Vars }} bash {{ .Path }}",
+      "inline": [
+        "cd /tmp/mloc-install/",
+        "for file in `find files -not -type d`; do mkdir -p $(dirname ${file//files}); cp $file $(dirname ${file//files})/; done"
+      ]
+    },
+    {
+      "type": "file",
+      "source": "scripts/",
+      "destination": "/tmp/mloc-install/scripts/"
+    },
+    {
+      "type": "shell",
+      "execute_command": "chmod +x {{ .Path }}; sudo {{ .Vars }} {{ .Path }}",
+      "inline": [
+        "cd /tmp/mloc-install/scripts",
+        "for script in *; do echo $script; bash $script >> /var/log/mloc-install-${script}.log 2>&1 ; done"
+      ]
+    },
+    {
+      "type": "shell",
+      "execute_command": "chmod +x {{ .Path }}; sudo {{ .Vars }} {{ .Path }}",
+      "inline": [
+        "rm -f /var/log/mloc*"
+      ]
+    }
+  ]
 }

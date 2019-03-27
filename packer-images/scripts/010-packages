@@ -10,7 +10,6 @@ pkgs=(apt-transport-https
       linux-image-extra-virtual
       python-pip
       python-virtualenv
-      lighttpd
 )
 
 export DEBIAN_FRONTEND=noninteractive
