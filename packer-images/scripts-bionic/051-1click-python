@@ -1,0 +1,55 @@
+################################
+## PART: Python Datascience Libs
+##
+## vi: syntax=sh expandtab ts=4
+
+export DEBIAN_FRONTEND=noninteractive
+
+apt-get update
+apt-get upgrade -y
+apt-get install -y \
+    apache2-utils \
+    aria2 \
+    build-essential \
+    ca-certificates \
+    kafkacat \
+    python-pip \
+    python3-pip \
+    python3.6 \
+    python3.6-dev
+
+## install jupyter and datascience libraries
+pip3 install \
+    beautifulsoup4 \
+    bokeh \
+    Flask \
+    gensim \
+    jupyter \
+    jupyterhub \
+    jupyterlab \
+    kafka-python \
+    matplotlib \
+    networkx \
+    nltk \
+    nltk \
+    notebook \
+    numpy \
+    pandas \
+    pyzmq \
+    redis \
+    requests \
+    scikit-image \
+    scikit-learn \
+    scipy \
+    seaborn \
+    spacy \
+    sqlalchemy \
+    statsmodels \
+    sympy \
+    textblob
+
+pip install \
+    kafka-python \
+    flask
+
+mkdir -p /var/lib/jupyterhub

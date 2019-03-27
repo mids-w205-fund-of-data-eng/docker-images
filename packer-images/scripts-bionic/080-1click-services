@@ -1,0 +1,6 @@
+################################
+## PART: 1Click Services
+##
+## vi: syntax=sh expandtab ts=4
+
+systemctl enable jupyterhub.service

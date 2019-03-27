@@ -1,0 +1,29 @@
+################################
+## PART: install the packages
+##
+## vi: syntax=sh expandtab ts=4
+
+pkgs=(apt-transport-https
+      jq
+      ca-certificates
+      python3-certbot
+      linux-image-extra-virtual
+      python-pip
+      python-virtualenv
+)
+
+export DEBIAN_FRONTEND=noninteractive
+apt-get -qqy update
+apt-get -qqy install ${pkgs[@]}
+
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+
+cat > /etc/apt/sources.list.d/docker.list <<EOM
+deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable
+EOM
+
+apt-get -qqy update
+apt-get -qqy dist-upgrade
+apt-get -qqy install docker-ce docker-compose
+
+systemctl enable docker

@@ -1,0 +1,7 @@
+
+rm -f /usr/sbin/policy-rc.d
+
+apt-get autoremove -y
+
+apt-get -qqy clean
+rm -rf /var/lib/apt/lists/*

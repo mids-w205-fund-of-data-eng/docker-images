@@ -1,0 +1,17 @@
+################################
+## PART: Node.js DS deps
+##
+## vi: syntax=sh expandtab ts=4
+
+export DEBIAN_FRONTEND=noninteractive
+apt-get -qqy update
+apt-get install -y --no-install-recommends \
+    libssl1.0-dev \
+    nodejs \
+    nodejs-dev \
+    node-gyp \
+    npm
+
+## install deps
+npm install -g \
+  configurable-http-proxy
