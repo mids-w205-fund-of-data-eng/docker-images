@@ -1,6 +1,6 @@
 default: version list
 
-NAMESPACE=atox120
+NAMESPACE=midsw205
 IMAGE=$(shell basename $(PWD))
 VERSION=0.0.7
 

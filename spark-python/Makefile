@@ -1,6 +1,6 @@
 default: version list
 
-NAMESPACE=atox120
+NAMESPACE=midsw205
 IMAGE=$(shell basename $(PWD))
 VERSION=0.0.7
 
@@ -20,7 +20,7 @@ build:
 tag: tag-version tag-latest 
 tag-version:
 	@echo "--- $@ $(VERSION) ---"
-	docker tag $(IMAGE)$(NAMESPACE)/(IMAGE):$(VERSION)
+	docker tag $(IMAGE) $(NAMESPACE)/$(IMAGE):$(VERSION)
 
 tag-latest:
 	@echo "--- $@ latest---"
