@@ -15,8 +15,8 @@ apt-get install -y \
     aria2 \
     python-pip \
     python3-pip \
-    python3.5 \
-    python3.5-dev
+    python3.7 \
+    python3.7-dev
 
 apt-get autoremove -y 
 apt-get clean
